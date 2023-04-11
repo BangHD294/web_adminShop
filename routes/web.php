@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +20,11 @@ Route::get('/home', function () {
     return view('home');
 });
 Route::prefix('categories')->group(function () {
-    Route::get('/create', [
-        'as' => 'categories.create',
-        'uses' => 'CategoryController@create'
-    ]);
+//    Route::GET('/create', array(
+//        'as' => 'categories.create',
+//        'uses' => 'CategoryController@create'
+//    ));
+    Route::get('/create', [CategoryController::class, 'create'])
+        ->name('categories.create');
 });
+

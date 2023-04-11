@@ -30,7 +30,8 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">DataTable with default features</h3>
-                    <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
+                    <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> <a
+                            href="{{route('categories.create')}}">Add item</a></button>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
