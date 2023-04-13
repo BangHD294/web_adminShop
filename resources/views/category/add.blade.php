@@ -7,21 +7,7 @@
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Starter Page</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Starter Page</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('partials.contend-header', ['name' => 'category', 'key' => 'Add'])
         <div class="content">
             <section class="content">
                 <div class="container-fluid">
@@ -41,12 +27,7 @@
                                             <label>Chon danh muc cha</label>
                                             <select class="form-control select2" style="width: 100%;">
                                                 <option value="0" selected="selected">Chon danh muc cha</option>
-                                                <option>Alaska</option>
-                                                <option>California</option>
-                                                <option>Delaware</option>
-                                                <option>Tennessee</option>
-                                                <option>Texas</option>
-                                                <option>Washington</option>
+                                                {!! $htmlOptiont !!}
                                             </select>
                                         </div>
                                     </div>
