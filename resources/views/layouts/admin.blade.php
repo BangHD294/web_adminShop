@@ -18,6 +18,15 @@
     <link rel="stylesheet" href="{{asset('adminlte/plugins/bs-stepper/css/bs-stepper.min.css')}}">
     <link rel="stylesheet" href="{{asset('adminlte/plugins/dropzone/min/dropzone.min.css')}}">
     <link rel="stylesheet" href="{{asset('adminlte/dist/css/adminlte.min.css')}}">
+
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- DataTables -->
+{{--    <link rel="stylesheet" href="{{asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{asset('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">--}}
+{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">--}}
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -50,6 +59,22 @@
 <script src="{{asset('adminlte/dist/js/adminlte.min.js')}}"></script>
 <script src="{{asset('adminlte/dist/js/demo.js')}}"></script>
 {{--test--}}
+<!-- DataTables  & Plugins -->
+{{--<script src="{{asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/jszip/jszip.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/pdfmake/pdfmake.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/pdfmake/vfs_fonts.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>--}}
+{{--<script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>--}}
+<script src="{{asset('adminlte/dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('adminlte/dist/js/demo.js')}}"></script>
 <script>
     $(function () {
         //Initialize Select2 Elements
@@ -126,64 +151,21 @@
         })
 
     })
-    // BS-Stepper Init
-    document.addEventListener('DOMContentLoaded', function () {
-        window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-    })
-
-    // DropzoneJS Demo Code Start
-    Dropzone.autoDiscover = false
-
-    // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-    var previewNode = document.querySelector("#template")
-    previewNode.id = ""
-    var previewTemplate = previewNode.parentNode.innerHTML
-    previewNode.parentNode.removeChild(previewNode)
-
-    var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-        url: "/target-url", // Set the url
-        thumbnailWidth: 80,
-        thumbnailHeight: 80,
-        parallelUploads: 20,
-        previewTemplate: previewTemplate,
-        autoQueue: false, // Make sure the files aren't queued until manually added
-        previewsContainer: "#previews", // Define the container to display the previews
-        clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-    })
-
-    myDropzone.on("addedfile", function(file) {
-        // Hookup the start button
-        file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file) }
-    })
-
-    // Update the total progress bar
-    myDropzone.on("totaluploadprogress", function(progress) {
-        document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
-    })
-
-    myDropzone.on("sending", function(file) {
-        // Show the total progress bar when upload starts
-        document.querySelector("#total-progress").style.opacity = "1"
-        // And disable the start button
-        file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
-    })
-
-    // Hide the total progress bar when nothing's uploading anymore
-    myDropzone.on("queuecomplete", function(progress) {
-        document.querySelector("#total-progress").style.opacity = "0"
-    })
-
-    // Setup the buttons for all transfers
-    // The "add files" button doesn't need to be setup because the config
-    // `clickable` has already been specified.
-    document.querySelector("#actions .start").onclick = function() {
-        myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
-    }
-    document.querySelector("#actions .cancel").onclick = function() {
-        myDropzone.removeAllFiles(true)
-    }
-    // DropzoneJS Demo Code End
+    // $(function () {
+    //     $("#example1").DataTable({
+    //         "responsive": true, "lengthChange": false, "autoWidth": false,
+    //         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    //     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    //     $('#example2').DataTable({
+    //         "paging": true,
+    //         "lengthChange": false,
+    //         "searching": false,
+    //         "ordering": true,
+    //         "info": true,
+    //         "autoWidth": false,
+    //         "responsive": true,
+    //     });
+    // });
 </script>
-{{--end test--}}
 </body>
 </html>

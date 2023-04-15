@@ -7,7 +7,7 @@
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        @include('partials.contend-header', ['name' => 'category', 'key' => 'Add'])
+        @include('partials.contend-header', ['name' => 'category', 'key' => 'Edit'])
         <div class="content">
             <section class="content">
                 <div class="container-fluid">
@@ -17,7 +17,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Quick Example</h3>
                                 </div>
-                                <form action="{{route('categories.store')}}" method="post">
+                                <form action="{{route('categories.update', ['id' =>$category->id])}}" method="post">
                                     @csrf
                                     <div class="card-body">
                                         <div class="form-group">
@@ -26,6 +26,7 @@
                                                    class="form-control"
                                                    id="inputCategory"
                                                    name="name"
+                                                   value="{{$category->name}}"
                                                    placeholder="Nhập tên danh mục">
                                         </div>
                                         <div class="form-group">

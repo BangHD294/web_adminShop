@@ -9,25 +9,41 @@
         <!-- Content Header (Page header) -->
         @include('partials.contend-header', ['name' => 'category', 'key' => 'List'])
         <!-- /.content-header -->
-
-        <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">DataTable with default features</h3>
+{{--                        <h3 class="card-title">DataTable with default features</h3>--}}
                         <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> <a
                                 href="{{route('categories.create')}}">Add item</a></button>
                     </div>
-                    <!-- /.card-header -->
                     <div class="card-body">
-                        Trang chu
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($category as $item)
+                            <tr>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>
+                                    <a href="{{route('categories.delete', ['id' => $item->id])}}" class="btn btn-outline-danger">Delete</a>
+                                    <a href="{{route('categories.edit', ['id' => $item->id])}}" class="btn btn-outline-success">Edit</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                        <div>{{$category->links('pagination::bootstrap-4')}}</div>
+
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            </div>
         </div>
-        <!-- /.content -->
     </div>
 @endsection
