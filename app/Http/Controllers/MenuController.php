@@ -40,4 +40,17 @@ class MenuController extends Controller
         $selectOtion = $this->menuRecusive->menuRecusiveEdit($dataMenu->parent_id);
         return view('menus.edit', compact('selectOtion', 'dataMenu'));
     }
+
+    public function update($id, Request $request) {
+        $this->menu->find($id)->update([
+            'name' => $request->name,
+            'parent_id' => $request->parent_id,
+            'slug' => Str::slug($request->name)
+        ]);
+        return redirect()->route('menus.index');
+    }
+    public function delete($id) {
+        $this->menu->find($id)->delete();
+        return redirect()->route('menus.index');
+    }
 }
